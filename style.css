@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,300;1,400&display=swap");
+
+body {
+  padding: 30px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+section {
+  padding: 20px 0px;
+}
+
+section:last-child {
+  border: none;
+}
+
+#imagePreview {
+  max-width: 75%;
+  max-height: 66%;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+div #imagePreview img{
+  width: 100%;
+}
+
+h1 {
+  font-weight: 100;
+  color: slategray;
+  font-size: 3rem;
+}
+
+/* section:hover {
+  background-color: rgba(219, 68, 55, 0.2);
+}
+
+div:hover {
+  background-color: rgba(219, 68, 55, 0.2);
+} */
+
+div h3:only-child {
+  padding-left: 20px;
+}
+
+button {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+}
+
+.categories{
+  font-size: 30px;
+  margin: 0px;
+  padding:0px;
+  padding-left: 22px;
+  display: flex; 
+  justify-content:space-evenly;
+}
+
+.images{
+  border-radius: 20px;
+  width: 20%;
+  border-width: 1px;
+  border-color: black;
+}
+
+.card{
+  border-radius: 20px;
+  width: 25%;
+  padding: 5px;
+  margin: 1%;
+}
+
+.card-image{
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.card-content{
+  width: 75%;
+  
+}
+
+.media-content{
+  width: 75%;
+}
+
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.media-left{
+  align-content: center;
+}
+
+#pinCard{
+  position: absolute;
+  top: 15%;
+  margin-left: 33%;
+  font-size: 25px;
+  color: black;
+  width: 33vw;
+  height: 75vh;
+}
+
+.exitOver{
+  position: absolute;
+  top: .5%;
+  margin-left: 92%;
+  color: #f02828;
+  font-size: 35px;
+}
+
+#pinPreview{
+  box-sizing: border-box;
+  height: 65%;
+  padding-top: 5%;
+  padding-left: 15%;
+  padding-bottom: 5%;
+}
+
+/* CSS for drag n drop area */
+/* #drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+#drop-area.highlight {
+  border-color: purple;
+} */
+
+p {
+  margin-top: 0;
+}
+
+.my-form {
+  margin-bottom: 10px;
+}
+
+#gallery {
+ margin: 10px;
+}
+
+#gallery img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px;
+  background: #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.button:hover {
+  background: #ddd;
+}
+
+#fileElem {
+  display: none;
+}
+
+output{
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: relative;
+  border-radius: 5px;
+}
+
+output .image{
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+output .image img{
+  height: 100%;
+  width: 100%;
+}
+
+output .image span {
+  position: absolute;
+  top: -4px;
+  right: 4px;
+  cursor: pointer;
+  font-size: 22px;
+  color: white;
+}
+
+output .image span:hover {
+  opacity: 0.8;
+}
+
+output .span--hidden{
+  visibility: hidden;
+}
+
+.gallery div.card:hover{
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+/* Succesful upload notification */
+/* .alert-box {
+	padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;  
+} */
+
+.success {
+  position: fixed;
+  width: 25vw;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  display: none;
+}
+
+.deleteButtn{
+  font-size: 200%;
+  position: absolute;
+  z-index: 4;
+  color: #f02828;
+  top: .5%;
+  margin-left: 92%;
+  display: none;
+}
+
+.usrPost:hover .deleteButtn {
+  display: block; /* Show the delete button when the card is hovered over */
+}
+
+#homeBttn{
+  background-color: black;
+  color: white;
+}
+
+.rounded{
+  border-radius: 25px;
+}
+
+.navbar{
+  z-index: 1;
+}
+
+#postDisplay{
+  height: 100%;
+  justify-content: center;
+}
+
+#postContainer{
+  max-height: 100%;
+  border-radius: 25px;
+  margin: auto;
+  padding: 0;
+  display:flex;
+  max-width: 50vw;
+}
+
+#postImage{
+  min-height: 400px;
+  height: 100%;
+  min-width: 50%;
+  max-width: 55%;
+}
+
+/* #postInteraction{
+  
+} */
+
+#accountDetails{
+  display: flex;
+  padding: 25px 10px 10px 25px;
+}
+
+#accDetailsName{
+  padding-left: 10px;
+}
+
+.commentSection{
+  padding: 50px 10px 10px 25px;
+}
+
+.is-50x50{
+  height: 50px;
+  width: 50px;
+}
+
+.profilePic{
+  border-radius: 50%;
+}
+
+.comments{
+  flex-shrink: 1;
+  margin-left: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.comment{
+  font-size: 2vw;
+}
+
+.commentPoster{
+  position: absolute;
+  bottom: 0px;
+  margin-left: 10px;
+  max-width: 75%;
+}
+
+.commentArea{
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  background-color: #dfdddd;
+  min-height: 30px;
+  max-height: 50px;
+  width:100%;
+  resize: none;
+  color: black;
+}
+
+.placeholder{
+  display: block;
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="https://s.pinimg.com/webapp/favicon-56d11a6a.png">
+  <title>Pinteresting</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="formatting.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+</head>
+
+<body>
+  <!-- Create Pin Overlay -->
+  <div class="overlay" id="pinOptOverlay">
+    <div class="alert-box success">Your pin was posted!</div>
+    <div class="card " id="pinCard">
+      <p class="exitOver" onclick="exitPinOverlay()">x</p>
+      <div class="overCardCont" id="pinPreview">
+        <p>Upload a picture to post</p>
+        <input type="file" id="imgIn" accept="image/jpeg, image/png, image/jpg" onchange="previewImage(event)">
+        <div id="imagePreview">
+          <!-- Uploaded Image Appears Here -->
+        </div>
+      </div>
+      <div class="overCardCont" id="uploadPin">
+        <button id='buttonUpload' onclick="uploadImg()"> Upload </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Spread menu -->
+  <section>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://www.pinterest.com/">
+          <img src="https://snipstock.com/assets/cdn/png/01fb944b467b866a1ece4ea635747747.png" width="50" height="50">
+          Pinteresting
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item rounded" id="homeBttn">
+            Home
+          </a>
+
+          <a class="navbar-item rounded">
+            Explore
+          </a>
+
+          <a class="navbar-item rounded">
+            Clips
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link rounded">
+              Create
+            </a>
+
+            <div class="navbar-dropdown" id="createDropdown">
+              <a class="navbar-item" id="ideaOption">
+                Create Idea Pin
+              </a>
+              <a class="navbar-item" id="pinOption" onclick="displayPinOverlay()">
+                Create Pin
+              </a>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Search">
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+          </div>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!--   Categories     -->
+  <section>
+    <div class="categories">
+      <button class="button is-danger is-rounded is-large">Line Art</button>
+      <button class="button is-danger is-rounded is-large">Photography</button>
+      <button class="button is-danger is-rounded is-large">Nature</button>
+    </div>
+  </section>
+
+  <!--   Gallery   -->
+  <section class="gallery" id="gallerySection">
+    <!-- Container -->
+
+    <!-- Item 1.1 & Containers -->
+    <!-- 1 -->
+    <div class="card">
+      <figure class="image" onclick="viewPostDetails(this)">
+        <img class="images"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKOm6reWvyOHz8Eb253-B2psXOFMTdk-I77A&usqp=CAU">
+      </figure>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 displayName">John Smith</p>
+            <p class="subtitle is-6 username">@johnsmith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <figure class="image" onclick="viewPostDetails(this)">
+        <img class="images"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQVb3HXdGV24dyj6YDRPOLxaHHjmgnUL-34g&usqp=CAU">
+      </figure>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 displayName">John Smith</p>
+            <p class="subtitle is-6 username">@johnsmith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-image" onclick="viewPostDetails(this)">
+        <figure class="image">
+          <img class="images" src="https://images.freeimages.com/images/small-previews/b5a/day-window-1167654.jpg">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 displayName">John Smith</p>
+            <p class="subtitle is-6 username">@johnsmith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Card Container -->
+    <div class="card">
+      <div class="card-image" onclick="viewPostDetails(this)">
+        <figure class="image">
+          <img class="images" src="https://images.freeimages.com/images/small-previews/57a/photos-1141003.jpg">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 displayName">John Smith</p>
+            <p class="subtitle is-6 username">@johnsmith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 1.1 & Container -->
+    <!--  Card Container -->
+    <div class="card">
+      <div class="card-image" onclick="viewPostDetails(this)">
+        <figure class="image">
+          <img class="images" src="https://images.freeimages.com/images/small-previews/400/zoo-1161798.jpg">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 displayName">John Smith</p>
+            <p class="subtitle is-6 username">@johnsmith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Card Container -->
+    <div class="card">
+      <div class="card-image" onclick="viewPostDetails(this)">
+        <figure class="image">
+          <img class="images" src="https://images.freeimages.com/images/small-previews/071/spring-1373199.jpg">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 displayName">John Smith</p>
+            <p class="subtitle is-6 username">@johnsmith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Card Container -->
+    <div class="card">
+      <div class="card-image" onclick="viewPostDetails(this)">
+        <figure class="image">
+          <img class="images" src="https://images.freeimages.com/images/small-previews/da8/rainbow-1369910.jpg">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 displayName">John Smith</p>
+            <p class="subtitle is-6 username">@johnsmith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Card Container -->
+    <div class="card">
+      <div class="card-image" onclick="viewPostDetails(this)">
+        <figure class="image">
+          <img class="images"
+            src="https://images.freeimages.com/images/small-previews/655/colorful-architecture-1-1216925.jpg">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 displayName">John Smith</p>
+            <p class="subtitle is-6 username">@johnsmith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <script>
+    function previewImage(event) {
+      var input = event.target;
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        //Converts file content into a data URL
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = function () {
+          var output = document.getElementById('imagePreview');
+          output.innerHTML = "<img id='usrImg' src='" + reader.result + "'>";
+        };
+
+      }
+    }
+
+    function uploadImg() {
+      var gallery = document.getElementById('gallerySection');
+      var imageElement = document.getElementById('usrImg');
+      var imageData = imageElement.src;
+      
+      gallery.innerHTML = gallery.innerHTML + '<div class="card usrPost"> <i class="deleteButtn fas fa-times" onclick="deleteCard()">x</i> <div class="card-image" onclick="viewPostDetails(this)"> <figure class="image"> <img class="images"  src="' + imageData + '"></figure> </div> <div class="card-content"> <div class="media"> <div class="media-left"> <figure class="image is-48x48"> <img class="profilePic" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image"> </figure> </div> <div class="media-content"> <p class="title is-4 displayName">John Smith</p> <p class="subtitle is-6 username">@johnsmith</p> </div> </div> </div> </div>';
+      // Add notification that picture was uploaded
+      // $("div.success").fadeIn(300).delay(1500).fadeOut(400);
+
+      // Add code for getting display name and username and adds it to the post
+    }
+
+    function deleteCard() {
+      var deleteBttn = event.target;
+      var parentCard = deleteBttn.parentNode;
+      parentCard.remove();
+    }
+
+    function displayPinOverlay() {
+      document.getElementById("pinOptOverlay").style.display = "block";
+    }
+
+    function exitPinOverlay() {
+      document.getElementById("pinOptOverlay").style.display = "none";
+    }
+
+    //Get details on post, like username and image data
+    function viewPostDetails(cardElement) {
+      var card = cardElement.parentElement;
+      var imageElement = card.querySelector('.images');
+      var imageUrl = imageElement.src;
+
+      //get profile picture from card
+      var profilePicElement = card.querySelector('.profilePic');
+      var profilePicUrl = profilePicElement.src;
+      // Get the account details from the card 
+      var accountNameElement = card.querySelector('.displayName');
+      var accountName = accountNameElement.textContent.trim();
+
+      var accountUsernameElement = card.querySelector('.username');
+      var accountUsername = accountUsernameElement.textContent.trim();
+
+      // Redirect the user to the new page and pass the data as URL parameters
+      window.location.href = 'post-display.html?image=' + encodeURIComponent(imageUrl) + '&name=' + encodeURIComponent(accountName) + '&username=' + encodeURIComponent(accountUsername) + '&profilePic=' + encodeURIComponent(profilePicUrl);
+    }
+  </script>
+</body>
+
+</html>

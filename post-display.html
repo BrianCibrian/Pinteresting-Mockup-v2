@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pinteresting</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="style sheet" href="formatting.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+</head>
+
+<body>
+  <section>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://www.pinterest.com/">
+          <img src="https://snipstock.com/assets/cdn/png/01fb944b467b866a1ece4ea635747747.png" width="50" height="50">
+          Pinteresting
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item rounded" id="homeBttn">
+            Home
+          </a>
+
+          <a class="navbar-item rounded">
+            Explore
+          </a>
+
+          <a class="navbar-item rounded">
+            Clips
+          </a>
+
+
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Search">
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+          </div>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <section id="postDisplay">
+    <div class="card" id="postContainer">
+      <img id="postImage" src="" alt="Post Image">
+      <div id="postInteraction">
+        <div id="shareDiv">
+
+        </div>
+        <div id="accountDetails">
+          <img class="is-50x50 profilePic" id="uploaderDP">
+          <div id="accDetailsName">
+            <h2><span id="accountName"></span></h2>
+            <h3><span id="accountUsername"></span></h3>
+          </div>
+        </div>
+
+        <div class="commentSection" id="commentsDisplay">
+          <p><b>Comments</b></p>
+          <div class="comments">
+            <p class="placeholder" id="commentPlaceholder">No comments yet! Add one to start the conversation.</p>
+
+          </div>
+        </div>
+
+        <div class="commentPoster">
+
+          <textarea class="commentArea" id="typeComment" placeholder="Add a comment" rows="3"></textarea>
+          <button class="uploadButton" onclick="uploadComment()">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script>
+    // JavaScript code to retrieve and populate the data from URL parameters
+    var urlParams = new URLSearchParams(window.location.search);
+    var imageUrl = urlParams.get('image');
+    var accountName = urlParams.get('name');
+    var accountUsername = urlParams.get('username');
+    var profilePicUrl = urlParams.get('profilePic');
+
+    var postImageElement = document.getElementById('postImage');
+    postImageElement.src = decodeURIComponent(imageUrl);
+
+    var accountNameElement = document.getElementById('accountName');
+    accountNameElement.textContent = decodeURIComponent(accountName);
+
+    var accountUsernameElement = document.getElementById('accountUsername');
+    accountUsernameElement.textContent = decodeURIComponent(accountUsername);
+
+    var uploaderProfilePicElement = document.getElementById('uploaderDP');
+    uploaderProfilePicElement.src = decodeURIComponent(profilePicUrl);
+
+    function uploadComment() {
+      var commentBox = document.getElementById("typeComment");
+      var commentPlaceholder = document.getElementById('commentPlaceholder');
+      var commentsDisplay = document.getElementById('commentsDisplay');
+
+      if (commentBox.value != "") {
+        commentPlaceholder.style.display = "none";
+        commentsDisplay.innerHTML = commentsDisplay.innerHTML + '<p>' + commentBox.value + '</p>';
+      }
+    }
+  </script>
+</body>
+
+</html>
